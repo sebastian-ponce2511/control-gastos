@@ -3,6 +3,7 @@
   --blanco: #ffffff;
   --gris-claro: #f5f5f5;
   --gris: #e7e7e7;
+  --gris-oscuro: rgb(153, 153, 153);
 }
 
 body {
@@ -35,17 +36,20 @@ body {
 .header-budget-box {
   color:var(--azul);
   text-align: center;
-  margin-top: 200px;
+  margin-top: 50px;
   background-color: var(--blanco);
-  padding: 30px;
+  padding: 50px;
   border-radius: 10px;
-  box-shadow: 0px 0px 30px 14px rgba(0, 0, 0, 0.11);
+  box-shadow: 0px 0px 30px 14px rgba(0, 0, 0, 0.05);
 }
 
 
 
 .header-title {
-  font-size: 40px;
+  margin-top: 200px;
+  color: var(--azul);
+  text-align: center;
+  font-size: 50px;
   text-transform: uppercase;
   font-weight: 700;
 }
@@ -86,3 +90,119 @@ body {
   background-color: #1563e1;
   transition: 0.3s ease-in-out;
 }
+
+/* BudgetControl */
+.budget-control-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: left;
+}
+
+.budget-control-text {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.budget-control-text p {
+  padding-bottom: 10px;
+}
+
+.budget-control-text span {
+  color: var(--gris-oscuro)
+}
+
+/* AddBtn (botón de nuevo gasto) */
+.add-btn {
+  position: absolute;
+  width: 60px;
+  right: 20px;
+  bottom: 20px;
+}
+
+.add-btn:hover {
+  cursor: pointer;
+}
+
+/* Modal */
+.modal {
+  position: absolute;
+  background-color: rgb(0 0 0 / 0.90);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.modal-title {
+  font-size: 40px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-top: 200px;
+  margin-bottom: 50px;
+}
+
+.modal-form {
+  color: white;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 30%
+}
+
+.form {
+  max-width: 100%;
+}
+
+.modal-form label {
+  display: block;
+  text-align: left;
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+.form select {
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+
+.modal-form input {
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+
+.modal-form-btn {
+  margin-top: 20px;
+  width: 100%;
+  border: none;
+  background-color: var(--azul);
+  color: var(--blanco);
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.modal-form-btn:hover {
+  cursor: pointer;
+  background-color: #1563e1;
+  transition: 0.3s ease-in-out;
+}
+
+.close-btn {
+  position: absolute;
+  width: 50px;
+  right: 20px;
+  top: 20px;
+}
+  
+.close-btn:hover {
+  cursor: pointer;
+}
+
+
+

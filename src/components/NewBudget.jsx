@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Error from "./Error";
 
-const NewBudget = ({ budget, setBudget }) => {
+const NewBudget = ({ budget, setBudget, setIsValidBudget }) => {
   const [errorMsg, setErrorMsg] = useState(false);
 
   const handleBudget = (e) => {
@@ -10,6 +10,7 @@ const NewBudget = ({ budget, setBudget }) => {
       setErrorMsg(true);
     } else {
       setErrorMsg(false);
+      setIsValidBudget(true);
     }
   };
 
