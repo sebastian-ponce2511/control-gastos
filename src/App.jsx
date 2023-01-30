@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Modal from "./components/Modal";
 import AddBtn from "./img/nuevo-gasto.svg";
@@ -14,12 +14,13 @@ function App() {
   };
 
   return (
-    <>
+    <div className={modal ? "fixate" : ""}>
       <Header
         budget={budget}
         setBudget={setBudget}
         isValidBudget={isValidBudget}
         setIsValidBudget={setIsValidBudget}
+        saveExpenses={saveExpenses}
       />
       {isValidBudget && (
         <img
@@ -38,7 +39,7 @@ function App() {
       ) : (
         ""
       )}
-    </>
+    </div>
   );
 }
 

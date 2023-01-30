@@ -9,10 +9,6 @@ const Modal = ({ setModal, saveExpenses, setSaveExpenses }) => {
   const [category, setCategory] = useState("");
   const [errorForm, setErrorForm] = useState(false);
 
-  const handleCloseBtn = () => {
-    setModal(false);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if ([expense, qty, category].includes("")) {
@@ -21,11 +17,14 @@ const Modal = ({ setModal, saveExpenses, setSaveExpenses }) => {
       setErrorForm(false);
       const expObject = { expense, qty, category };
       expObject.id = generateId();
+      expObject.date = new Date();
       setSaveExpenses([...saveExpenses, expObject]);
+      setModal(false);
     }
-    setExpense("");
-    setQty("");
-    setCategory("");
+  };
+
+  const handleCloseBtn = () => {
+    setModal(false);
   };
 
   return (
