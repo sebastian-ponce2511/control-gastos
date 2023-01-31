@@ -205,7 +205,7 @@ main {
 
 .modal-form-btn:hover {
   cursor: pointer;
-  background-color: var(--azul);
+  background-color: #1563e1;
   transition: 0.3s ease-in-out;
 }
 
@@ -277,5 +277,48 @@ main {
 .exp-icon {
   width: 100px
 }
+
+.buttons {
+  width: 25%;
+  margin-left: 40px;
+  margin-right: -20px;
+  padding: 20px;
+}
+
+.btn-edit {
+  width: 100%;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--azul);
+  color: var(--blanco);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.btn-edit:hover {
+  cursor: pointer;
+  background-color: #1563e1;
+  transition: 0.3s ease-in-out;
+}
+
+.btn-delete {
+  width: 100%;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(214, 0, 0);
+  color: var(--blanco);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.btn-delete:hover {
+  cursor: pointer;
+  background-color: rgb(154, 0, 0);
+  transition: 0.3s ease-in-out;
+}
+
 
 

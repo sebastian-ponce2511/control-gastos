@@ -1,6 +1,11 @@
 import Expense from "./Expense";
 
-const ExpLists = ({ saveExpenses }) => {
+const ExpLists = ({
+  saveExpenses,
+  setSaveExpenses,
+  setModal,
+  setEditExpense,
+}) => {
   return (
     <>
       <h2 className="exp-list-title">
@@ -8,7 +13,14 @@ const ExpLists = ({ saveExpenses }) => {
       </h2>
       <div>
         {saveExpenses.map((exp) => (
-          <Expense exp={exp} key={exp.id} />
+          <Expense
+            exp={exp}
+            key={exp.id}
+            setModal={setModal}
+            setEditExpense={setEditExpense}
+            saveExpenses={saveExpenses}
+            setSaveExpenses={setSaveExpenses}
+          />
         ))}
       </div>
     </>

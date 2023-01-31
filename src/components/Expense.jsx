@@ -7,8 +7,13 @@ import LeisureIcon from "../img/icono_ocio.svg";
 import HelathIcon from "../img/icono_salud.svg";
 import SubsIcon from "../img/icono_suscripciones.svg";
 
-const Expense = ({ exp }) => {
+const Expense = ({ exp, setModal, setEditExpense }) => {
   const { expense, qty, category, date } = exp;
+
+  const handleEdit = () => {
+    setModal(true);
+    setEditExpense(exp);
+  };
 
   const iconList = {
     ahorro: SavingsIcon,
@@ -34,6 +39,15 @@ const Expense = ({ exp }) => {
         </div>
         <div className="exp-qty">
           <p>${qty}</p>
+        </div>
+        <div className="buttons">
+          <input
+            onClick={handleEdit}
+            className="btn-edit"
+            type="button"
+            value="Editar"
+          />
+          <input className="btn-delete" type="button" value="Eliminar" />
         </div>
       </div>
     </>

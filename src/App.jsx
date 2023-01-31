@@ -8,9 +8,15 @@ function App() {
   const [isValidBudget, setIsValidBudget] = useState(false);
   const [modal, setModal] = useState(false);
   const [saveExpenses, setSaveExpenses] = useState([]);
+  const [editExpense, setEditExpense] = useState({});
+
+  useEffect(() => {
+    console.log(editExpense);
+  }, [editExpense]);
 
   const handleModal = () => {
     setModal(true);
+    setEditExpense({});
   };
 
   return (
@@ -21,6 +27,9 @@ function App() {
         isValidBudget={isValidBudget}
         setIsValidBudget={setIsValidBudget}
         saveExpenses={saveExpenses}
+        setSaveExpenses={setSaveExpenses}
+        setModal={setModal}
+        setEditExpense={setEditExpense}
       />
       {isValidBudget && (
         <img
@@ -35,6 +44,8 @@ function App() {
           setModal={setModal}
           saveExpenses={saveExpenses}
           setSaveExpenses={setSaveExpenses}
+          editExpense={editExpense}
+          setEditExpense={setEditExpense}
         />
       ) : (
         ""

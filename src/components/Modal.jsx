@@ -1,21 +1,49 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { generateId } from "../helpers/generateId";
 import CloseBtn from "../img/cerrar.svg";
 import Error from "./Error";
 
-const Modal = ({ setModal, saveExpenses, setSaveExpenses }) => {
+const Modal = ({
+  setModal,
+  saveExpenses,
+  setSaveExpenses,
+  editExpense,
+  setEditExpense,
+}) => {
   const [expense, setExpense] = useState("");
   const [qty, setQty] = useState("");
   const [category, setCategory] = useState("");
   const [errorForm, setErrorForm] = useState(false);
+  const [id, setId] = useState("");
+  const [date, setDate] = useState("");
+
+  useEffect(() => {
+    if (Object.keys(editExpense).length > 0) {
+      setExpense(editExpense.expense);
+      setQty(editExpense.qty);
+      setCategory(editExpense.category);
+      setId(editExpense.id);
+      setDate(editExpense.date);
+    }
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if ([expense, qty, category].includes("")) {
       setErrorForm(true);
+      return;
+    }
+
+    const expObject = { expense, qty, category, id, date };
+    if (expObject.id) {
+      const updtExp = saveExpenses.map((expState) =>
+        expState.id === expObject.id ? expObject : expState
+      );
+      setSaveExpenses(updtExp);
+      setModal(false);
     } else {
       setErrorForm(false);
-      const expObject = { expense, qty, category };
+
       expObject.id = generateId();
       expObject.date = new Date();
       setSaveExpenses([...saveExpenses, expObject]);
@@ -25,6 +53,7 @@ const Modal = ({ setModal, saveExpenses, setSaveExpenses }) => {
 
   const handleCloseBtn = () => {
     setModal(false);
+    setEditExpense({});
   };
 
   return (
@@ -36,7 +65,9 @@ const Modal = ({ setModal, saveExpenses, setSaveExpenses }) => {
         onClick={handleCloseBtn}
       />
       <div className="modal-form container">
-        <h2 className="modal-title">Nuevo Gasto</h2>
+        <h2 className="modal-title">
+          {editExpense.expense ? "Editar gasto" : "Nuevo gasto"}
+        </h2>
         <form className="form" onSubmit={handleSubmit}>
           <div>
             <label>Nombre del gasto</label>
@@ -75,7 +106,7 @@ const Modal = ({ setModal, saveExpenses, setSaveExpenses }) => {
           <input
             className="modal-form-btn"
             type="submit"
-            value="Agregar Gasto"
+            value={editExpense.expense ? "Editar gasto" : "Agregar Gasto"}
           />
           {errorForm && (
             <Error>{<p>Todos los campos son obligatorios</p>}</Error>

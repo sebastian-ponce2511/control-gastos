@@ -9,6 +9,9 @@ const Header = ({
   isValidBudget,
   setIsValidBudget,
   saveExpenses,
+  setSaveExpenses,
+  setModal,
+  setEditExpense,
 }) => {
   return (
     <>
@@ -21,7 +24,13 @@ const Header = ({
               {saveExpenses.length === 0 ? (
                 ""
               ) : (
-                <ExpLists budget={budget} saveExpenses={saveExpenses} />
+                <ExpLists
+                  budget={budget}
+                  saveExpenses={saveExpenses}
+                  setSaveExpenses={setSaveExpenses}
+                  setModal={setModal}
+                  setEditExpense={setEditExpense}
+                />
               )}
             </main>
           </>
