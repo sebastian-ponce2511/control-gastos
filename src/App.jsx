@@ -4,15 +4,32 @@ import Modal from "./components/Modal";
 import AddBtn from "./img/nuevo-gasto.svg";
 
 function App() {
-  const [budget, setBudget] = useState("");
+  const [budget, setBudget] = useState(
+    Number(localStorage.getItem("budget") ?? 0)
+  );
   const [isValidBudget, setIsValidBudget] = useState(false);
   const [modal, setModal] = useState(false);
-  const [saveExpenses, setSaveExpenses] = useState([]);
+  const [saveExpenses, setSaveExpenses] = useState(
+    localStorage.getItem("saveExpenses")
+      ? JSON.parse(localStorage.getItem("saveExpenses"))
+      : []
+  );
   const [editExpense, setEditExpense] = useState({});
 
   useEffect(() => {
-    console.log(editExpense);
-  }, [editExpense]);
+    localStorage.setItem("budget", budget ?? "");
+  }, [budget]);
+
+  useEffect(() => {
+    const budgetLS = localStorage.getItem("budget") ?? "";
+    if (budgetLS > 0) {
+      setIsValidBudget(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("saveExpenses", JSON.stringify(saveExpenses) ?? []);
+  }, [saveExpenses]);
 
   const handleModal = () => {
     setModal(true);

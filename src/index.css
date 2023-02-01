@@ -62,7 +62,7 @@ main {
 }
 
 .header-title {
-  margin-top: 200px;
+  margin-top: 100px;
   color: var(--azul);
   text-align: center;
   font-size: 50px;
@@ -126,6 +126,10 @@ main {
 
 .budget-control-text span {
   color: var(--gris-oscuro)
+}
+
+.circle {
+  width: 30%;
 }
 
 /* AddBtn (botón de nuevo gasto) */
@@ -319,6 +323,8 @@ main {
   background-color: rgb(154, 0, 0);
   transition: 0.3s ease-in-out;
 }
+
+
 
 
 

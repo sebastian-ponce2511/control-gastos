@@ -7,12 +7,26 @@ import LeisureIcon from "../img/icono_ocio.svg";
 import HelathIcon from "../img/icono_salud.svg";
 import SubsIcon from "../img/icono_suscripciones.svg";
 
-const Expense = ({ exp, setModal, setEditExpense }) => {
-  const { expense, qty, category, date } = exp;
+const Expense = ({
+  exp,
+  setModal,
+  saveExpenses,
+  setSaveExpenses,
+  setEditExpense,
+}) => {
+  const { expense, qty, category, id, date } = exp;
 
   const handleEdit = () => {
     setModal(true);
     setEditExpense(exp);
+  };
+
+  const handleDelete = () => {
+    const confirmation = confirm(`¿Desea eliminar el gasto: ${exp.expense}?`);
+    if (confirmation) {
+      const deleteExp = saveExpenses.filter((dltExp) => dltExp.id !== id);
+      setSaveExpenses(deleteExp);
+    }
   };
 
   const iconList = {
@@ -47,7 +61,12 @@ const Expense = ({ exp, setModal, setEditExpense }) => {
             type="button"
             value="Editar"
           />
-          <input className="btn-delete" type="button" value="Eliminar" />
+          <input
+            onClick={handleDelete}
+            className="btn-delete"
+            type="button"
+            value="Eliminar"
+          />
         </div>
       </div>
     </>
