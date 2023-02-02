@@ -13,6 +13,8 @@ const Expense = ({
   saveExpenses,
   setSaveExpenses,
   setEditExpense,
+  filteredExp,
+  setFilteredExp,
 }) => {
   const { expense, qty, category, id, date } = exp;
 
@@ -26,6 +28,10 @@ const Expense = ({
     if (confirmation) {
       const deleteExp = saveExpenses.filter((dltExp) => dltExp.id !== id);
       setSaveExpenses(deleteExp);
+      if (confirmation) {
+        const deleteExp = filteredExp.filter((dltExp) => dltExp.id !== id);
+        setFilteredExp(deleteExp);
+      }
     }
   };
 

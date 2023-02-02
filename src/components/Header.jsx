@@ -1,6 +1,7 @@
 import React from "react";
 import BudgetControl from "./BudgetControl";
 import ExpLists from "./ExpLists";
+import Filters from "./Filters";
 import NewBudget from "./NewBudget";
 
 const Header = ({
@@ -12,6 +13,10 @@ const Header = ({
   setSaveExpenses,
   setModal,
   setEditExpense,
+  filter,
+  setFilter,
+  filteredExp,
+  setFilteredExp,
 }) => {
   return (
     <>
@@ -19,18 +24,34 @@ const Header = ({
       <header className="container">
         {isValidBudget ? (
           <>
-            <BudgetControl budget={budget} saveExpenses={saveExpenses} />
+            <BudgetControl
+              budget={budget}
+              setBudget={setBudget}
+              saveExpenses={saveExpenses}
+              setSaveExpenses={setSaveExpenses}
+              setIsValidBudget={setIsValidBudget}
+            />
             <main>
               {saveExpenses.length === 0 ? (
                 ""
               ) : (
-                <ExpLists
-                  budget={budget}
-                  saveExpenses={saveExpenses}
-                  setSaveExpenses={setSaveExpenses}
-                  setModal={setModal}
-                  setEditExpense={setEditExpense}
-                />
+                <>
+                  <Filters
+                    filter={filter}
+                    setFilter={setFilter}
+                    filteredExp={filteredExp}
+                  />
+                  <ExpLists
+                    budget={budget}
+                    saveExpenses={saveExpenses}
+                    setSaveExpenses={setSaveExpenses}
+                    setModal={setModal}
+                    setEditExpense={setEditExpense}
+                    filter={filter}
+                    filteredExp={filteredExp}
+                    setFilteredExp={setFilteredExp}
+                  />
+                </>
               )}
             </main>
           </>

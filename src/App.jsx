@@ -16,6 +16,9 @@ function App() {
   );
   const [editExpense, setEditExpense] = useState({});
 
+  const [filter, setFilter] = useState("");
+  const [filteredExp, setFilteredExp] = useState([]);
+
   useEffect(() => {
     localStorage.setItem("budget", budget ?? "");
   }, [budget]);
@@ -30,6 +33,15 @@ function App() {
   useEffect(() => {
     localStorage.setItem("saveExpenses", JSON.stringify(saveExpenses) ?? []);
   }, [saveExpenses]);
+
+  useEffect(() => {
+    if (filter) {
+      const filteredData = saveExpenses.filter(
+        (exp) => exp.category === filter
+      );
+      setFilteredExp(filteredData);
+    }
+  }, [filter]);
 
   const handleModal = () => {
     setModal(true);
@@ -47,6 +59,10 @@ function App() {
         setSaveExpenses={setSaveExpenses}
         setModal={setModal}
         setEditExpense={setEditExpense}
+        filter={filter}
+        setFilter={setFilter}
+        filteredExp={filteredExp}
+        setFilteredExp={setFilteredExp}
       />
       {isValidBudget && (
         <img

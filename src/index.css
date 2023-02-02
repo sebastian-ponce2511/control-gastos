@@ -36,6 +36,10 @@ main {
   height: 100vh;
 }
 
+.negative {
+  color: #dc2626;
+}
+
 /* Mensaje de error */
 .error-msg {
   margin: 0 auto;
@@ -116,7 +120,7 @@ main {
 }
 
 .budget-control-text {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 700;
 }
 
@@ -130,6 +134,24 @@ main {
 
 .circle {
   width: 30%;
+}
+
+.reset-btn {
+  color: white;
+  width: 100%;
+  font-size: 17px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 8px;
+  background-color: #db2777;
+  border: none;
+  border-radius: 7px;
+}
+
+.reset-btn:hover {
+  cursor: pointer;
+  background-color: #fd65aa;
+  transition: 0.3s ease-in-out;
 }
 
 /* AddBtn (botón de nuevo gasto) */
@@ -225,7 +247,6 @@ main {
 }
 
 /* ExpList */
-
 .exp-container {
   text-align: center;
   background-color: var(--blanco);
@@ -324,6 +345,35 @@ main {
   transition: 0.3s ease-in-out;
 }
 
+/* Filters */
+.filters {
+  margin-top: 25px;
+  background-color: var(--blanco);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 30px 14px rgba(0, 0, 0, 0.05);
+}
+
+.filter-box {
+  display: flex;
+  justify-content: space-around;
+}
+
+.filter-label {
+  color: var(--gris-oscuro);
+  font-weight: 700;
+  font-size: 25px;
+}
+
+.filter-select {
+  text-align: center;
+  display: inline;
+  padding: 5px 10px;
+  width:70%;
+  border: none;
+  background-color: var(--gris-claro);
+  border-radius: 5px;
+}
 
 
 
