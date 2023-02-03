@@ -56,7 +56,7 @@ const Header = ({
             </main>
           </>
         ) : (
-          <div className="header-budget-box">
+          <div className="box-shadow">
             <NewBudget
               budget={budget}
               setBudget={setBudget}

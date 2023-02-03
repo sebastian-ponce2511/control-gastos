@@ -34,6 +34,9 @@ const ExpLists = ({
           </>
         ) : (
           <>
+            <h2 className="exp-list-title">
+              {saveExpenses.length === 0 ? "" : "Gastos"}
+            </h2>
             {saveExpenses.map((exp) => (
               <Expense
                 exp={exp}

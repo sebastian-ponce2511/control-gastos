@@ -38,7 +38,7 @@ const BudgetControl = ({
 
   return (
     <>
-      <div className="header-budget-box budget-control-flex">
+      <div className="box-shadow budget-control-flex">
         <div className="circle">
           <CircularProgressbar
             styles={buildStyles({

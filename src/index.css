@@ -7,8 +7,8 @@
 }
 
 body {
-  font-family: 'Lato', sans-serif;
-  background-color: var(--gris-claro)
+  font-family: "Lato", sans-serif;
+  background-color: var(--gris-claro);
 }
 
 /* Globales */
@@ -23,7 +23,7 @@ main {
 }
 
 .flex {
-  display: flex
+  display: flex;
 }
 
 .flex-column {
@@ -55,8 +55,8 @@ main {
 }
 
 /* Header y NewBudget */
-.header-budget-box {
-  color:var(--azul);
+.box-shadow {
+  color: var(--azul);
   text-align: center;
   margin-top: 50px;
   background-color: var(--blanco);
@@ -86,7 +86,7 @@ main {
   width: 90%;
   text-align: center;
   font-size: 30px;
-  border:none;
+  border: none;
   padding: 10px 20px;
   border-radius: 10px;
   background-color: var(--gris);
@@ -94,7 +94,7 @@ main {
 
 .budget-submit {
   margin-top: 25px;
-  width:95%;
+  width: 95%;
   padding: 10px 20px;
   border: none;
   background-color: var(--azul);
@@ -129,7 +129,7 @@ main {
 }
 
 .budget-control-text span {
-  color: var(--gris-oscuro)
+  color: var(--gris-oscuro);
 }
 
 .circle {
@@ -169,7 +169,7 @@ main {
 /* Modal */
 .modal {
   position: absolute;
-  background-color: rgb(0 0 0 / 0.90);
+  background-color: rgb(0 0 0 / 0.9);
   top: 0;
   left: 0;
   right: 0;
@@ -188,7 +188,7 @@ main {
   color: white;
   margin: 0 auto;
   text-align: center;
-  max-width: 30%
+  max-width: 30%;
 }
 
 .form {
@@ -241,12 +241,12 @@ main {
   right: 20px;
   top: 20px;
 }
-  
+
 .close-btn:hover {
   cursor: pointer;
 }
 
-/* ExpList */
+/* ExpList & Expense */
 .exp-container {
   text-align: center;
   background-color: var(--blanco);
@@ -279,7 +279,6 @@ main {
 .exp-info-name {
   color: var(--gris-oscuro);
   font-size: 20px;
-
 }
 
 .exp-info-date {
@@ -296,11 +295,10 @@ main {
   color: var(--gris-oscuro);
   font-size: 35px;
   font-weight: 900;
-
 }
 
 .exp-icon {
-  width: 100px
+  width: 100px;
 }
 
 .buttons {
@@ -369,12 +367,214 @@ main {
   text-align: center;
   display: inline;
   padding: 5px 10px;
-  width:70%;
+  width: 70%;
   border: none;
   background-color: var(--gris-claro);
   border-radius: 5px;
 }
 
+/* ------------ Media Queries --------------*/
 
+/* Header & NewBudget */
+@media (max-width: 900px) {
+  .header-title {
+    margin: 0 auto;
+    padding-top: 25px;
+    color: var(--azul);
+    text-align: center;
+    font-size: 28px;
+  }
 
+  .container {
+    max-width: 380px;
+    margin: 0 auto;
+  }
 
+  .box-shadow {
+    color: var(--azul);
+    text-align: center;
+    margin-top: 25px;
+    padding: 30px;
+  }
+
+  .budget-label {
+    max-width: 100%;
+    margin-top: -15px;
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+
+  .budget-input {
+    max-width: 100%;
+    font-size: 25px;
+    padding: 5px 15px;
+  }
+
+  .budget-submit {
+    margin-top: 15px;
+    width: 100%;
+    padding: 5px 15px;
+    border: none;
+    background-color: var(--azul);
+    color: var(--blanco);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 20px;
+    border-radius: 10px;
+  }
+
+  /*BudgetControl */
+
+  .budget-control-flex {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .budget-control-text {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .budget-control-text p {
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .budget-control-text span {
+    color: var(--gris-oscuro);
+  }
+
+  .circle {
+    width: 65%;
+    margin-bottom: 20px;
+  }
+
+  .reset-btn {
+    margin-top: 15px;
+    color: white;
+    max-width: 100%;
+    font-size: 17px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 8px;
+    background-color: #db2777;
+    border: none;
+    border-radius: 7px;
+  }
+
+  /* AddBtn (botón de nuevo gasto) */
+  .add-btn {
+    position: fixed;
+    width: 30px;
+    right: 30px;
+    top: 95px;
+  }
+
+  /* Filters */
+  .filters {
+    margin-top: 25px;
+    background-color: var(--blanco);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px 14px rgba(0, 0, 0, 0.05);
+  }
+
+  .filter-box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .filter-label {
+    margin-bottom: 10px;
+    color: var(--gris-oscuro);
+    font-weight: 700;
+    font-size: 25px;
+    text-align: center;
+  }
+
+  .filter-select {
+    text-align: center;
+    padding: 10px 10px;
+    width: 100%;
+  }
+
+  /* ExpList & Expense */
+  .exp-container {
+    flex-direction: column;
+    max-width: 100%;
+    padding-bottom: 0;
+  }
+
+  .exp-info {
+    margin: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .exp-info-cat {
+    color: var(--gris-oscuro);
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .exp-info-name {
+    color: var(--gris-oscuro);
+    font-size: 20px;
+  }
+
+  .exp-info-date {
+    font-weight: 700;
+    color: var(--gris-oscuro);
+  }
+
+  .exp-info-span {
+    font-weight: 400;
+  }
+
+  .exp-qty p {
+    margin: 5px 0 5px;
+    text-align: center;
+    color: var(--gris-oscuro);
+    font-size: 35px;
+    font-weight: 900;
+  }
+
+  .exp-icon {
+    margin: 0 auto;
+    width: 100px;
+  }
+
+  .buttons {
+    margin-left: 0;
+    margin-bottom: 0;
+    width: 90%;
+    align-content: center;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  .btn-edit {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--azul);
+    color: var(--blanco);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .btn-delete {
+    height: 40px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(214, 0, 0);
+    color: var(--blanco);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}
